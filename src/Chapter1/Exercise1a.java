@@ -1,3 +1,5 @@
+package Chapter1;
+
 public class Exercise1a {
     public static void main(String[] args) {
         int x = 1;

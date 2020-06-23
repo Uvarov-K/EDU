@@ -1,3 +1,5 @@
+package Chapter1;
+
 public class PhraseOMatic {
     public static void main(String[] args) {
         String[] wordListOne = {"24/7", "multi-Tier", "30,000 foot", "B-to-B",

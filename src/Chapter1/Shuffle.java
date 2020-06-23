@@ -1,3 +1,5 @@
+package Chapter1;
+
 public class Shuffle {
     public static void main(String[] args) {
         // a-b c-d

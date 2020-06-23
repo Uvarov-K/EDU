@@ -1,3 +1,5 @@
+package Chapter1;
+
 public class PoolPuzzleOne {
     public static void main(String[] args) {
         // a noise

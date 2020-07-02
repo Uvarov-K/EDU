@@ -1,8 +1,16 @@
 package Chapter4;
 
 public class Dog {
-    int size;
-    String name;
+    private int size;
+    private String name;
+
+    private int getSize() {
+        return size;
+    }
+
+    public void setSize(int s) {
+        size = s;
+    }
 
     void bark(int numOfBarks) {
         while (numOfBarks > 0) {

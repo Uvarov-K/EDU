@@ -73,11 +73,10 @@ class MyTickThread implements Runnable {
 }
 
 class ThreadCom {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         TickTock tt = new TickTock();
         MyTickThread mt1 = new MyTickThread("Tick", tt);
         MyTickThread mt2 = new MyTickThread("Tock", tt);
-
         try {
             mt1.thrd.join();
             mt2.thrd.join();

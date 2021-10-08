@@ -25,6 +25,7 @@ class MyThread implements Runnable {
     }
 }
 
+
 class MoreThreads {
     public static void main(String args[]) {
         System.out.println("Main thread starting.");

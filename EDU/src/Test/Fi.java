@@ -1,6 +1,7 @@
 package Test;
 
 public class Fi {
+    //comment
 
     public static void main(String[] args) {
         int n = 1000;

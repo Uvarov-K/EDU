@@ -1,8 +1,7 @@
 package Test;
 
 public class Fi {
-    //comment in master
-    //comment in test branch
+//comments from dev branch
     public static void main(String[] args) {
         int n = 1000;
         long[] f = new long[n];
@@ -19,7 +18,7 @@ public class Fi {
             System.out.print(f[i] + " ");
         }
 
-        Tabnine::config
+  
 
 
     }

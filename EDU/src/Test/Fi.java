@@ -1,6 +1,9 @@
 package Test;
 
 public class Fi {
+
+//comments from dev branch
+
     public static void main(String[] args) {
         int n = 1000;
         long[] f = new long[n];
@@ -16,9 +19,6 @@ public class Fi {
         for (i = 0; i < n; i++) {
             System.out.print(f[i] + " ");
         }
-
-        Tabnine::config
-
 
     }
 

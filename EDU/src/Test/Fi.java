@@ -19,6 +19,9 @@ public class Fi {
             System.out.print(f[i] + " ");
         }
 
+        Tabnine::config
+
+
     }
 
 }

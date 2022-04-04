@@ -10,8 +10,8 @@ public class StringArr {
         }
 
         System.out.println("String array is: ");
-        for (int x = 0; x < arr.length; x++) {
-            System.out.print(arr[x] + " ");
+        for (String s : arr) {
+            System.out.print(s + " ");
         }
 
 

@@ -6,8 +6,8 @@ class SumArray {
     synchronized int sumArray(int nums[]) {
         sum = 0; // reset sum
 
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
+        for (int num : nums) {
+            sum += num;
             System.out.println("Running total for " +
                     Thread.currentThread().getName() +
                     " is " + sum);

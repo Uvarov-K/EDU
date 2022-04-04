@@ -6,7 +6,7 @@ public class BeerSong {
         int beerNum = 99;
         String word = "bottles";
 
-        //while loop iterates until condition becomes false i.e. beerNum is not greater that 0
+        //while loop iterates until condition becomes false i.e. beerNum is not greater than 0
         while (beerNum > 0) {
             if (beerNum == 1) {
                 word = "bottle";

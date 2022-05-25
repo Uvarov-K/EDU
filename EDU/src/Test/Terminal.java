@@ -49,7 +49,9 @@ public class Terminal {
                 menu();
             }
         }
-        System.out.println("exit");
+        System.out.println("*** sounds of cash withdrawal *** ");
+        balance=balance-d;
+        System.out.println("Your balance is: " + balance);
         menu();
    }
 

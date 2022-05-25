@@ -1,25 +1,11 @@
 package Test;
 
-import java.sql.*;
-public class Test {
-    public static void main(String[] args)
-            throws SQLException {
-        Connection conn = DriverManager.getConnection(
-                "jdbc:postgresql://132.226.131.93:5432/appdb",
-                "app", "welcome1");
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery(
-                "SELECT * FROM greeting");
-        while (rs.next()) {
-            System.out.println(rs.getString(1));
-        }
-        rs.close();
-        st.close();
-        conn.close();
+
+public class Test implements Beta {
+    public static void main(String[] args) {
+        Test obj = new Test();
+        System.out.println(obj.getString());
     }
+
 }
-
-
-
-
 

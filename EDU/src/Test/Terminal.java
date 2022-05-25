@@ -42,18 +42,27 @@ public class Terminal {
             System.out.println("You can't withdraw more than " + balance);
             d = withdrawAmount.nextDouble();
         }
+
+
         System.out.println("You entered: " + d + "\n" + "Do you want to proceed? [Y/y N/n]");
+
+
+
         while (!answer.next().equals("y")) {
             System.out.println("Incorrect symbol, type 'Y' or 'N'");
-            if (answer.next().equals("n")) {
+            String s = answer.next();
+            if (s.equals("n")) {
+                System.out.println("Returning to main menu");
+                menu();
+            } else {
+                System.out.println("*** sounds of cash withdrawal *** ");
+                balance = balance - d;
+                System.out.println("Your balance is: " + balance);
                 menu();
             }
         }
-        System.out.println("*** sounds of cash withdrawal *** ");
-        balance=balance-d;
-        System.out.println("Your balance is: " + balance);
-        menu();
-   }
+
+    }
 
 
     private void showBalance() {

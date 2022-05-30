@@ -11,22 +11,23 @@ public class Terminal {
         Scanner insertMoney = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
 
-        System.out.println("Insert your money ");
+        System.out.print("Insert your money: ");
         double d = insertMoney.nextDouble();
-        System.out.println("You inserted: " + d + "\n" +
-                           "Do you want to continue? [Y/y N/n]");
+        System.out.print("You inserted: " + d + "\n" +
+                           "Do you want to continue? [Y/y N/n]: ");
 
         double sum = d;
         while (!answer.next().equals("n")) {
-            System.out.println("Insert your money");
+            System.out.print("Insert your money: ");
 
             d = insertMoney.nextDouble();
             sum = sum + d;
-            System.out.println("You inserted: " + sum + "\n" +
-                               "Do you want to continue? [Y/y N/n]");
+            System.out.print("You inserted: " + sum + "\n" +
+                               "Do you want to continue? [Y/y N/n]: ");
         }
         balance = sum + balance;
-        System.out.println("Your balance is: " + balance + "\n");
+        System.out.println("*** sounds of cash insertion ***");
+        System.out.print("Your balance is: " + balance + "\n");
         menu();
     }
 
@@ -35,44 +36,42 @@ public class Terminal {
         Scanner withdrawAmount = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
 
-        System.out.println("Available: " + balance + "\n" + "Input amount ");
+        System.out.print("Available: " + balance + "\n" + "Input amount: ");
         double d = withdrawAmount.nextDouble();
 
-        while (d > balance) {
+        while (d > balance || d < 0) {
             System.out.println("You can't withdraw more than " + balance);
             d = withdrawAmount.nextDouble();
         }
 
 
-        System.out.println("You entered: " + d + "\n" + "Do you want to proceed? [Y/y N/n]");
+        System.out.print("You entered: " + d + "\n" + "Do you want to proceed? [Y/y N/n]: ");
 
-
-
-        while (!answer.next().equals("y")) {
-            System.out.println("Incorrect symbol, type 'Y' or 'N'");
-            String s = answer.next();
-            if (s.equals("n")) {
-                System.out.println("Returning to main menu");
-                menu();
-            } else {
-                System.out.println("*** sounds of cash withdrawal *** ");
-                balance = balance - d;
-                System.out.println("Your balance is: " + balance);
-                menu();
-            }
+        String s = answer.nextLine();
+        while (!s.equals("y") && !s.equals("n")) {
+            System.out.print("Incorrect symbol, type 'Y' or 'N'");
+            s = answer.nextLine();
         }
-
+        if (s.equals("n")) {
+            System.out.print("Returning to main menu");
+            menu();
+        } else {
+            System.out.println("*** sounds of cash withdrawal *** ");
+            balance = balance - d;
+            System.out.println("Your balance is: " + balance);
+            menu();
+        }
     }
 
 
     private void showBalance() {
-        System.out.println("Your balance is: " + balance);
+        System.out.print("Your balance is: " + balance);
         menu();
     }
 
 
     private void menu() {
-        System.out.println(
+        System.out.print(
                 " ==================== \n" +
                 " Available actions: \n" +
                 " 1) insert money \n" +

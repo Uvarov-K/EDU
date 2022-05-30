@@ -5,12 +5,12 @@ import java.util.*;
 public class Terminal {
     double balance = 100;
 
-    private void insertMoney() {
-        Scanner insertMoney = new Scanner(System.in);
+    private void depositMoney() {
+        Scanner depositMoney = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
 
         System.out.print("Insert your money: ");
-        double d = insertMoney.nextDouble();
+        double d = depositMoney.nextDouble();
         System.out.print("You inserted: " + d + "\n" +
                          "Do you want to continue? [Y/y N/n]: ");
 
@@ -18,7 +18,7 @@ public class Terminal {
         while (!answer.next().equalsIgnoreCase("n")) {
             System.out.print("Insert your money: ");
 
-            d = insertMoney.nextDouble();
+            d = depositMoney.nextDouble();
             sum = sum + d;
             System.out.print("You inserted: " + sum + "\n" +
                              "Do you want to continue? [Y/y N/n]: ");
@@ -89,7 +89,7 @@ public class Terminal {
         System.out.print(
                 " ==================== \n" +
                 " Available actions: \n" +
-                " 1) insert money \n" +
+                " 1) deposit money \n" +
                 " 2) withdraw money \n" +
                 " 3) show balance \n" +
                 " 4) exit\n" +
@@ -101,7 +101,7 @@ public class Terminal {
 
         switch (i) {
             case 1:
-                insertMoney();
+                depositMoney();
                 break;
             case 2:
                 withdrawMoney();

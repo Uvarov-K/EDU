@@ -2,8 +2,6 @@ package Test;
 
 import java.util.Scanner;
 
-import static java.awt.SystemColor.menu;
-
 public class Terminal {
     double balance = 100;
 
@@ -53,7 +51,7 @@ public class Terminal {
             s = answer.nextLine();
         }
         if (s.equals("n")) {
-            System.out.print("Returning to main menu");
+            System.out.println("Returning to main menu");
             menu();
         } else {
             System.out.println("*** sounds of cash withdrawal *** ");
@@ -65,7 +63,7 @@ public class Terminal {
 
 
     private void showBalance() {
-        System.out.print("Your balance is: " + balance);
+        System.out.println("Your balance is: " + balance);
         menu();
     }
 

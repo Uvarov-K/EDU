@@ -16,7 +16,7 @@ public class Terminal {
                          "Do you want to continue? [Y/y N/n]: ");
 
         double sum = d;
-        while (!answer.next().equals("n")) {
+        while (!answer.next().equalsIgnoreCase("n")) {
             System.out.print("Insert your money: ");
 
             d = insertMoney.nextDouble();
@@ -53,11 +53,11 @@ public class Terminal {
                 System.out.print("You entered: " + d + "\n" + "Do you want to proceed? [Y/y N/n]: ");
 
                 String s = answer.nextLine();
-                while (!s.equals("y") && !s.equals("n")) {
+                while (!s.equalsIgnoreCase("y") && !s.equalsIgnoreCase("n")) {
                     System.out.print("Incorrect symbol, type 'Y' or 'N'");
                     s = answer.nextLine();
                 }
-                if (s.equals("n")) {
+                if (s.equalsIgnoreCase("n")) {
                     System.out.println("Returning to main menu");
                     isTrue = true;
                     menu();

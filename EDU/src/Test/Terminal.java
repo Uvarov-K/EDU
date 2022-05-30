@@ -8,25 +8,41 @@ public class Terminal {
     private void depositMoney() {
         Scanner depositMoney = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
+        boolean isTrue = false;
 
         System.out.print("Insert your money: ");
-        double d = depositMoney.nextDouble();
-        System.out.print("You inserted: " + d + "\n" +
-                         "Do you want to continue? [Y/y N/n]: ");
 
-        double sum = d;
-        while (!answer.next().equalsIgnoreCase("n")) {
-            System.out.print("Insert your money: ");
+        while (!isTrue) {
+            try {
+                double d = depositMoney.nextDouble();
+                while (d < 0) {
+                    System.out.println("Don't try to fuck yourself!");
+                    d = depositMoney.nextDouble();
+                }
+                System.out.print("You inserted: " + d + "\n" +
+                                 "Do you want to deposit more money? [Y/y N/n]: ");
 
-            d = depositMoney.nextDouble();
-            sum = sum + d;
-            System.out.print("You inserted: " + sum + "\n" +
-                             "Do you want to continue? [Y/y N/n]: ");
+                double sum = d;
+                while (!answer.next().equalsIgnoreCase("n")) {
+                    System.out.print("Insert your money: ");
+
+                    d = depositMoney.nextDouble();
+                    sum = sum + d;
+                    System.out.print("You inserted: " + sum + "\n" +
+                                     "Do you want to deposit more money? [Y/y N/n]: ");
+                }
+
+                balance = sum + balance;
+                System.out.println("*** sounds of cash insertion ***");
+                System.out.print("Your balance is: " + balance + "\n");
+                isTrue = true;
+                menu();
+            } catch (InputMismatchException e) {
+                depositMoney.next();
+                System.out.println("Please enter a number! ");
+            }
+
         }
-        balance = sum + balance;
-        System.out.println("*** sounds of cash insertion ***");
-        System.out.print("Your balance is: " + balance + "\n");
-        menu();
     }
 
 

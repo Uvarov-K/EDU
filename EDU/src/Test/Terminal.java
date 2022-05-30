@@ -36,7 +36,7 @@ public class Terminal {
                 System.out.println("*** sounds of cash insertion ***");
                 System.out.print("Your balance is: " + balance + "\n");
                 isTrue = true;
-                menu();
+                showMenu();
             } catch (InputMismatchException e) {
                 depositMoney.next();
                 System.out.println("Please enter a number! ");
@@ -75,13 +75,13 @@ public class Terminal {
                 if (s.equalsIgnoreCase("n")) {
                     System.out.println("Returning to main menu");
                     isTrue = true;
-                    menu();
+                    showMenu();
                 } else {
                     System.out.println("*** sounds of cash withdrawal *** ");
                     balance = balance - d;
                     System.out.println("Your balance is: " + balance);
                     isTrue = true;
-                    menu();
+                    showMenu();
                 }
 
             } catch (InputMismatchException e) {
@@ -94,11 +94,11 @@ public class Terminal {
 
     private void showBalance() {
         System.out.println("Your balance is: " + balance);
-        menu();
+        showMenu();
     }
 
 
-    private void menu() {
+    private void showMenu() {
         System.out.print(
                 " ==================== \n" +
                 " Available actions: \n" +
@@ -139,6 +139,6 @@ public class Terminal {
     public static void main(String[] args) {
 
         Terminal t = new Terminal();
-        t.menu();
+        t.showMenu();
     }
 }

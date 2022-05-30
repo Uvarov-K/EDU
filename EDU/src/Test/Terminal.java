@@ -1,7 +1,6 @@
 package Test;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Terminal {
     double balance = 100;

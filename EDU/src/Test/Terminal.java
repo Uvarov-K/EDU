@@ -61,13 +61,15 @@ public class Terminal {
 
     private void menu() {
         System.out.println(
-                " ==================== \n" +
-                " Available actions: \n" +
-                " 1) insert money \n" +
-                " 2) withdraw money \n" +
-                " 3) show balance \n" +
-                " 4) exit\n" +
-                " ==================== \n"
+                """
+                         ====================\s
+                         Available actions:\s
+                         1) insert money\s
+                         2) withdraw money\s
+                         3) show balance\s
+                         4) exit
+                         ====================\s
+                        """
         );
 
         Scanner sc = new Scanner(System.in);

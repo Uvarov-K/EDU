@@ -87,13 +87,10 @@ public class Terminal {
             } catch (InputMismatchException e) {
                 withdrawAmount.next();
                 System.out.println("Please enter a number! ");
-
             }
-
         }
-
-
     }
+
 
     private void showBalance() {
         System.out.println("Your balance is: " + balance);
@@ -112,23 +109,29 @@ public class Terminal {
                 " ==================== \n"
         );
 
-        Scanner sc = new Scanner(System.in);
-        int i = sc.nextInt();
+        Scanner choice = new Scanner(System.in);
 
-        switch (i) {
-            case 1:
-                depositMoney();
-                break;
-            case 2:
-                withdrawMoney();
-                break;
-            case 3:
-                showBalance();
-                break;
-            case 4:
-                break;
-            default:
-                break;
+        try {
+            int i = choice.nextInt();
+            switch (i) {
+                case 1:
+                    depositMoney();
+                    break;
+                case 2:
+                    withdrawMoney();
+                    break;
+                case 3:
+                    showBalance();
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("No such menu, exit");
+                    break;
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("No such menu, exit!");
         }
     }
 

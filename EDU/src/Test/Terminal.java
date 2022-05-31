@@ -8,34 +8,34 @@ public class Terminal {
     private void depositMoney() {
         Scanner depositMoney = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
-        boolean isTrue = false;
+        boolean exitLoop = false;
 
         System.out.print("Insert your money: ");
 
-        while (!isTrue) {
+        while (!exitLoop) {
             try {
-                double d = depositMoney.nextDouble();
-                while (d < 0) {
+                double amount = depositMoney.nextDouble();
+                while (amount < 0) {
                     System.out.println("Don't try to fuck yourself!");
-                    d = depositMoney.nextDouble();
+                    amount = depositMoney.nextDouble();
                 }
-                System.out.print("You inserted: " + d + "\n" +
+                System.out.print("You inserted: " + amount + "\n" +
                                  "Do you want to deposit more money? [Y/y N/n]: ");
 
-                double sum = d;
+                double deposited = amount;
                 while (!answer.next().equalsIgnoreCase("n")) {
                     System.out.print("Insert your money: ");
 
-                    d = depositMoney.nextDouble();
-                    sum = sum + d;
-                    System.out.print("You inserted: " + sum + "\n" +
+                    amount = depositMoney.nextDouble();
+                    deposited = deposited + amount;
+                    System.out.print("You inserted: " + deposited + "\n" +
                                      "Do you want to deposit more money? [Y/y N/n]: ");
                 }
 
-                balance = sum + balance;
+                balance = deposited + balance;
                 System.out.println("*** sounds of cash insertion ***");
                 System.out.print("Your balance is: " + balance + "\n");
-                isTrue = true;
+                exitLoop = true;
                 showMenu();
             } catch (InputMismatchException e) {
                 depositMoney.next();
@@ -49,23 +49,23 @@ public class Terminal {
     private void withdrawMoney() {
         Scanner withdrawAmount = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
-        boolean isTrue = false;
+        boolean exitLoop = false;
 
         System.out.print("Available: " + balance + "\n" + "Input amount: ");
 
-        while (!isTrue) {
+        while (!exitLoop) {
             try {
-                double d = withdrawAmount.nextDouble();
-                while (d > balance || d < 0) {
-                    if (d > balance) {
+                double amount = withdrawAmount.nextDouble();
+                while (amount > balance || amount < 0) {
+                    if (amount > balance) {
                         System.out.println("You can't withdraw more than " + balance);
-                    } else if (d < 0) {
+                    } else if (amount < 0) {
                         System.out.println("Don't try to fuck me! ");
                     }
-                    d = withdrawAmount.nextDouble();
+                    amount = withdrawAmount.nextDouble();
                 }
 
-                System.out.print("You entered: " + d + "\n" + "Do you want to proceed? [Y/y N/n]: ");
+                System.out.print("You entered: " + amount + "\n" + "Do you want to proceed? [Y/y N/n]: ");
 
                 String s = answer.nextLine();
                 while (!s.equalsIgnoreCase("y") && !s.equalsIgnoreCase("n")) {
@@ -74,13 +74,13 @@ public class Terminal {
                 }
                 if (s.equalsIgnoreCase("n")) {
                     System.out.println("Returning to main menu");
-                    isTrue = true;
+                    exitLoop = true;
                     showMenu();
                 } else {
                     System.out.println("*** sounds of cash withdrawal *** ");
-                    balance = balance - d;
+                    balance = balance - amount;
                     System.out.println("Your balance is: " + balance);
-                    isTrue = true;
+                    exitLoop = true;
                     showMenu();
                 }
 

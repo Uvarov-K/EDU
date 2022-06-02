@@ -1,4 +1,4 @@
-package Test;
+package Terminal;
 
 import java.util.*;
 
@@ -93,8 +93,10 @@ public class Terminal {
 
 
     private void showBalance() {
-        System.out.println("Your balance is: " + balance);
-        showMenu();
+        //System.out.println("Your balance is: " + balance);
+        //showMenu();
+        ShowBalanceT showBalance = new ShowBalanceT();
+
     }
 
 

@@ -9,6 +9,7 @@ public class TerminalOperations {
     static int customer_id = 2;
     static double balance = 500;
 
+
     public static void getBalance() throws SQLException {
 
         final String showBalanceSQL = "select amount from balance where customer_id = ?";
@@ -23,6 +24,7 @@ public class TerminalOperations {
         queryResultSet.close();
         PrepSQLStatement.close();
         connectionToOracle.close();
+
     }
 
 
@@ -80,7 +82,49 @@ public class TerminalOperations {
 
 
 
+    public static void withdrawMoney() throws SQLException {
+        Scanner withdrawAmount = new Scanner(System.in);
+        Scanner answer = new Scanner(System.in);
+        boolean exitFromLoop = false;
 
+
+        while (!exitFromLoop) {
+            try {
+                int amount = withdrawAmount.nextInt();
+                while (amount > balance || amount < 0) {
+                    if (amount > balance) {
+                        System.out.println("You can't withdraw more than " + balance);
+                    } else if (amount < 0) {
+                        System.out.println("Don't try to fuck me! ");
+                    }
+                    amount = withdrawAmount.nextInt();
+                }
+
+                System.out.print("You entered: " + amount + "\n" + "Do you want to proceed? [Y/y N/n]: ");
+
+                String s = answer.nextLine();
+                while (!s.equalsIgnoreCase("y") && !s.equalsIgnoreCase("n")) {
+                    System.out.print("Incorrect symbol, type 'Y' or 'N'");
+                    s = answer.nextLine();
+                }
+                if (s.equalsIgnoreCase("n")) {
+                    System.out.println("Returning to main menu");
+                    exitFromLoop = true;
+                    //showMenu();
+                } else {
+                    System.out.println("*** sounds of cash withdrawal *** ");
+                    balance = balance - amount;
+                    System.out.println("Your balance is: " + balance);
+                    exitFromLoop = true;
+                   // showMenu();
+                }
+
+            } catch (InputMismatchException e) {
+                withdrawAmount.next();
+                System.out.println("Please enter a number! ");
+            }
+        }
+    }
 
 
 

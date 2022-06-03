@@ -3,9 +3,9 @@ package Terminal;
 import java.sql.*;
 import java.util.*;
 
-public class MainMenu {
+public  class MainMenu {
 
-    public void showMenu() {
+    public static void showMenu() {
         System.out.print(
                 " ==================== \n" +
                 " Available actions: \n" +
@@ -22,14 +22,13 @@ public class MainMenu {
             int i = choice.nextInt();
             switch (i) {
                 case 1:
-                      TerminalOperations.depositMoney();
+                    TerminalOperations.depositMoney();
                     break;
                 case 2:
-                    //      withdrawMoney();
+                    TerminalOperations.withdrawMoney();
                     break;
                 case 3:
-                    //       showBalance();
-                    TerminalOperations.getBalance();
+                    TerminalOperations.showBalance();
                     break;
                 case 4:
                     break;
@@ -46,7 +45,6 @@ public class MainMenu {
 
     public static void main(String[] args) {
 
-        MainMenu menu = new MainMenu();
-          menu.showMenu();
+        MainMenu.showMenu();
     }
 }

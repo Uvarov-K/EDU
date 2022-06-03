@@ -7,33 +7,19 @@ import static Terminal.DBConnection.connectionToOracle;
 
 public class TerminalOperations {
     static int customer_id = 2;
-    static double balance = 500;
 
 
-    public static void getBalance() throws SQLException {
-
-        final String showBalanceSQL = "select amount from balance where customer_id = ?";
-        PreparedStatement PrepSQLStatement = DBConnection.getConnection().prepareStatement(showBalanceSQL);
-        PrepSQLStatement.setInt(1, customer_id);
-        ResultSet queryResultSet = PrepSQLStatement.executeQuery();
-
-        while (queryResultSet.next()) {
-            System.out.println("Your balance is: " + queryResultSet.getInt(1));
-        }
-
-        queryResultSet.close();
-        PrepSQLStatement.close();
-        connectionToOracle.close();
-
+    public static void showBalance() throws SQLException {
+        System.out.println("Your balance is: " + BalanceOperation.getBalance(customer_id));
+        MainMenu.showMenu();
     }
 
 
-
-
-    public static void depositMoney() {
+    public static void depositMoney() throws SQLException {
         Scanner depositMoney = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
         boolean exitFromLoop = false;
+        int balance = BalanceOperation.getBalance(customer_id);
 
         System.out.print("Insert your money: ");
 
@@ -57,21 +43,14 @@ public class TerminalOperations {
                                      "Do you want to deposit more money? [Y/y N/n]: ");
                 }
 
-                final String updateBalanceSQL = "update balance set amount = ? where customer_id = ?";
-                PreparedStatement PrepSQLStatement = DBConnection.getConnection().prepareStatement(updateBalanceSQL);
-                PrepSQLStatement.setInt(1, totalDeposited);
-                PrepSQLStatement.setInt(2, customer_id);
-                PrepSQLStatement.executeUpdate();
 
-
-                PrepSQLStatement.close();
-                DBConnection.connectionToOracle.close();
+                BalanceOperation.setBalance(totalDeposited+balance, customer_id);
 
                 System.out.println("*** sounds of cash insertion ***");
-                getBalance();
+                showBalance();
 
                 exitFromLoop = true;
-                //  showMenu();
+                MainMenu.showMenu();
             } catch (InputMismatchException | SQLException e) {
                 depositMoney.next();
                 System.out.println("Please enter a number! ");
@@ -81,13 +60,13 @@ public class TerminalOperations {
     }
 
 
-
     public static void withdrawMoney() throws SQLException {
         Scanner withdrawAmount = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
         boolean exitFromLoop = false;
+        int balance = BalanceOperation.getBalance(customer_id);
 
-
+        System.out.print("Available: " + balance + "\n" + "Input amount: ");
         while (!exitFromLoop) {
             try {
                 int amount = withdrawAmount.nextInt();
@@ -110,13 +89,14 @@ public class TerminalOperations {
                 if (s.equalsIgnoreCase("n")) {
                     System.out.println("Returning to main menu");
                     exitFromLoop = true;
-                    //showMenu();
+                    MainMenu.showMenu();
                 } else {
                     System.out.println("*** sounds of cash withdrawal *** ");
                     balance = balance - amount;
-                    System.out.println("Your balance is: " + balance);
+                    BalanceOperation.setBalance(balance, customer_id);
+                    showBalance();
                     exitFromLoop = true;
-                   // showMenu();
+                    MainMenu.showMenu();
                 }
 
             } catch (InputMismatchException e) {
@@ -125,12 +105,4 @@ public class TerminalOperations {
             }
         }
     }
-
-
-
-
-
-
-
-
 }

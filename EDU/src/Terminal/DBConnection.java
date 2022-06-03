@@ -15,7 +15,7 @@ public class DBConnection {
             final String password = "ku";
             Class.forName(oracleJDBCDriver);
             connectionToOracle = DriverManager.getConnection(url, username, password);
-            System.out.println("connected");
+           // System.out.println("connected");
 
         } catch (Exception e) {
             System.out.println("Connection Failed!");

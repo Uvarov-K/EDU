@@ -3,7 +3,7 @@ package Terminal;
 import java.sql.*;
 import java.util.*;
 
-public  class MainMenu {
+public class MainMenu {
 
     public static void showMenu() {
         System.out.print(
@@ -44,7 +44,6 @@ public  class MainMenu {
 
 
     public static void main(String[] args) {
-
         MainMenu.showMenu();
     }
 }

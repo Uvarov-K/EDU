@@ -15,6 +15,7 @@ public class TerminalOperations {
     }
 
 
+
     public static void depositMoney() throws SQLException {
         Scanner depositMoney = new Scanner(System.in);
         Scanner answer = new Scanner(System.in);
@@ -34,30 +35,30 @@ public class TerminalOperations {
                                  "Do you want to deposit more money? [Y/y N/n]: ");
 
                 int totalDeposited = deposited;
+                // BUG with answer like 1111111
                 while (!answer.next().equalsIgnoreCase("n")) {
                     System.out.print("Insert your money: ");
 
                     deposited = depositMoney.nextInt();
                     totalDeposited = totalDeposited + deposited;
-                    System.out.print("You inserted: " + deposited + "\n" +
+                    System.out.print("You inserted: " + totalDeposited + "\n" +
                                      "Do you want to deposit more money? [Y/y N/n]: ");
                 }
 
 
-                BalanceOperation.setBalance(totalDeposited+balance, customer_id);
+                BalanceOperation.setBalance(totalDeposited + balance, customer_id);
 
                 System.out.println("*** sounds of cash insertion ***");
                 showBalance();
 
                 exitFromLoop = true;
-                MainMenu.showMenu();
             } catch (InputMismatchException | SQLException e) {
                 depositMoney.next();
                 System.out.println("Please enter a number! ");
             }
-
         }
     }
+
 
 
     public static void withdrawMoney() throws SQLException {
@@ -89,14 +90,13 @@ public class TerminalOperations {
                 if (s.equalsIgnoreCase("n")) {
                     System.out.println("Returning to main menu");
                     exitFromLoop = true;
-                    MainMenu.showMenu();
+
                 } else {
                     System.out.println("*** sounds of cash withdrawal *** ");
                     balance = balance - amount;
                     BalanceOperation.setBalance(balance, customer_id);
                     showBalance();
                     exitFromLoop = true;
-                    MainMenu.showMenu();
                 }
 
             } catch (InputMismatchException e) {

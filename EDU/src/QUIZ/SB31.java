@@ -38,7 +38,7 @@ public class SB31 {
 
         System.out.println("Number of words in file: " + words.length);
 
-        Map<String, Integer> treeMap = new TreeMap<>(new Comparator<>() {
+        Map<String, Integer> treeMap = new TreeMap<>(new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
                 if (s1.length() < s2.length()) {

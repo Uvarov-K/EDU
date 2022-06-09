@@ -19,7 +19,7 @@ public class DBConnection {
 
  */
             // connection to SQLite
-            final String url = "jdbc:sqlite:D:\\Win\\Java/test.db";
+            final String url = "jdbc:sqlite:D:\\Win\\Java\\EDU\\src\\Terminal/test.db";
             connectionToSQLite = DriverManager.getConnection(url);
 
         } catch (Exception e) {

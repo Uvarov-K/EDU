@@ -5,7 +5,7 @@ public class TestPostgresClient {
     public static void main(String[] args)
             throws SQLException {
         Connection conn = DriverManager.getConnection(
-                "jdbc:postgresql://132.226.131.93:5432/appdb",
+                "jdbc:postgresql://hostname:5432/appdb",
                 "app", "welcome1");
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery(

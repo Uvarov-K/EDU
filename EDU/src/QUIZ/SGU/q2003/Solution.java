@@ -1,4 +1,4 @@
-package SBER.SGU.q2003;
+package QUIZ.SGU.q2003;
 
 import java.util.Scanner;
 
@@ -35,7 +35,7 @@ public class Solution {
         for (int i = 0; i < arr.length; i++) {
             if (i % 2 == 0) {
                 altsum += arr[i];
-            } else altsum += -arr[i];
+            } else altsum -= arr[i];
         }
         System.out.println(altsum);
     }

@@ -1,9 +1,8 @@
 package Terminal;
 
 import java.sql.*;
-import java.util.*;
 
-import static Terminal.DBConnection.connectionToOracle;
+import static Terminal.DBConnection.connectionToSQLite;
 
 public class BalanceOperation {
 
@@ -19,7 +18,7 @@ public class BalanceOperation {
 
         queryResultSet.close();
         PrepSQLStatement.close();
-        connectionToOracle.close();
+        connectionToSQLite.close();
         return userBalance;
 
     }
@@ -34,6 +33,6 @@ public class BalanceOperation {
         PrepSQLStatement.executeUpdate();
 
         PrepSQLStatement.close();
-        connectionToOracle.close();
+        connectionToSQLite.close();
     }
 }

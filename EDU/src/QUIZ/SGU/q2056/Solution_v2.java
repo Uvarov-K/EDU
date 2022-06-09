@@ -1,12 +1,11 @@
-package SGU.q2056;
+package QUIZ.SGU.q2056;
 
-import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_v2 {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        String line ;
+        String line;
         StringBuilder tmp = new StringBuilder(" ");
 
         while (!(line = keyboard.nextLine()).isEmpty()) {

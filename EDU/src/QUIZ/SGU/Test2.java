@@ -1,4 +1,4 @@
-package SBER.SGU;
+package QUIZ.SGU;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,13 +16,13 @@ public class Test2 {
 
         Scanner input = new Scanner(System.in);
 
-        while (!s.toLowerCase().equals("q")) {
+        while (!s.equalsIgnoreCase("q")) {
             System.out.println("Enter a number between 0 and " + (arr.size() - 1) + " or q to quit");
 
 
             try {
                 s = input.next();
-                if (s.toLowerCase().equals("q")) {
+                if (s.equalsIgnoreCase("q")) {
                     break;
                 }
             } catch (Exception e) {

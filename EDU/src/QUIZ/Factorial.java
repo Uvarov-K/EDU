@@ -1,4 +1,4 @@
-package Test;
+package QUIZ;
 
 public class Factorial {
     int fact(int x) {

@@ -1,4 +1,4 @@
-package SBER;
+package QUIZ;
 
 import java.io.*;
 import java.util.*;
@@ -38,7 +38,7 @@ public class SB31 {
 
         System.out.println("Number of words in file: " + words.length);
 
-        Map<String, Integer> treeMap = new TreeMap<String, Integer>(new Comparator<String>() {
+        Map<String, Integer> treeMap = new TreeMap<>(new Comparator<>() {
             @Override
             public int compare(String s1, String s2) {
                 if (s1.length() < s2.length()) {
@@ -80,9 +80,7 @@ public class SB31 {
 
         //  Задание 4: Выведите на экран все строки файла в обратном порядке.
 
-        ArrayList<String> arr = new ArrayList<>();
-
-        arr.addAll(Arrays.asList(words));
+        ArrayList<String> arr = new ArrayList<>(Arrays.asList(words));
 
         System.out.println();
         System.out.print("Words in reverse order: ");

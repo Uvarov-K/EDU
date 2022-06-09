@@ -1,4 +1,4 @@
-package Test;
+package QUIZ;
 
 /*
 Напишите программу, в которой массив используется для нахождения среднего
@@ -22,7 +22,7 @@ public class AvgArr {
 
             sum += arr[(int) x];
         }
-        System.out.println("");
+        System.out.println();
         System.out.println("avg: " + sum / arr.length);
 
 

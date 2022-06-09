@@ -1,4 +1,4 @@
-package Test;
+package QUIZ;
 
 public class Fi {
 
@@ -17,9 +17,6 @@ public class Fi {
         for (i = 0; i < n; i++) {
             System.out.print(f[i] + " ");
         }
-
-  
-
 
     }
 

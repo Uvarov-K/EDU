@@ -1,4 +1,4 @@
-package SBER.SGU;
+package QUIZ.SGU;
 
 import java.util.ArrayList;
 import java.util.Scanner;

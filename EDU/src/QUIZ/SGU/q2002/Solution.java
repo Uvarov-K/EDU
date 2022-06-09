@@ -1,4 +1,4 @@
-package SBER.SGU.q2002;
+package QUIZ.SGU.q2002;
 
 import java.util.Scanner;
 

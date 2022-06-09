@@ -1,6 +1,5 @@
-package SBER.SGU.q2056;
+package QUIZ.SGU.q2056;
 
-import java.io.*;
 import java.util.*;
 
 public class Solution {
@@ -21,9 +20,9 @@ public class Solution {
             wordToCount.put(word, wordToCount.get(word) + 1);
         }
 
-        wordToCount.entrySet().forEach(entry -> {
-            if (entry.getValue() >1) {
-                System.out.println(entry.getKey());
+        wordToCount.forEach((key, value) -> {
+            if (value > 1) {
+                System.out.println(key);
             }
         });
 

@@ -3,7 +3,6 @@ package Terminal;
 import java.sql.*;
 import java.util.*;
 
-import static Terminal.DBConnection.connectionToOracle;
 
 public class TerminalOperations {
     static int customer_id = 2;

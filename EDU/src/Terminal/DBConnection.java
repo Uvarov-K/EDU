@@ -11,12 +11,10 @@ public class DBConnection {
 /* connection to Oracle DB
             final String oracleJDBCDriver = "oracle.jdbc.driver.OracleDriver";
             final String url = "jdbc:oracle:thin:@hostname:1521:sid";
-            final String username = "ku";
-            final String password = "ku";
+            final String username = "username";
+            final String password = "password";
             Class.forName(oracleJDBCDriver);
             connectionToOracle = DriverManager.getConnection(url, username, password);
-
-
  */
             // connection to SQLite
             final String url = "jdbc:sqlite:D:\\Win\\Java\\EDU\\src\\Terminal/test.db";

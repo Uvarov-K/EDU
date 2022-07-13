@@ -17,6 +17,7 @@ public class MainMenu {
         );
 
         UserInput.chooseMenu();
+
     }
 
         public static void main (String[]args){

@@ -52,6 +52,7 @@ public class UserLogin {
                     queryResultSet.close();
                     PrepSQLStatement.close();
                     DBConnection.connectionToSQLite.close();
+                    MainMenu.showMenu();
                     break;
 
                 } else {
@@ -59,7 +60,6 @@ public class UserLogin {
                 }
             }
             loginAttempt++;
-        }MainMenu.showMenu();
+        }
     }
-
 }

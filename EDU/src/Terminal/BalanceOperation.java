@@ -4,6 +4,7 @@ import java.sql.*;
 
 import static Terminal.DBConnection.connectionToSQLite;
 
+
 public class BalanceOperation {
 
     public static int getBalance(int customer_id) throws SQLException {

@@ -25,41 +25,27 @@ public class UserLogin {
         PrepSQLStatement.setInt(2, userInputtedPassword);
 
 
-        int loginAttempt = 0;
+        ResultSet queryResultSet = PrepSQLStatement.executeQuery();
 
-        while (loginAttempt < 3) {
+        if (!queryResultSet.isBeforeFirst()) {
+            System.out.println("Incorrect login or pin. Exit.");
 
-            ResultSet queryResultSet = PrepSQLStatement.executeQuery();
 
-            if (!queryResultSet.isBeforeFirst()) {
-                System.out.println("Incorrect login or pin.");
-                System.out.println("Attempts available: " + (3 - loginAttempt) + "/3");
+        } else {
+            int customer_id = queryResultSet.getInt("customer_id");
+            int pin = queryResultSet.getInt("pin");
 
-                System.out.print("enter id: ");
-                userInputtedLogin = userInput.nextInt();
-
-                System.out.print("enter pin: ");
-                userInputtedPassword = userInput.nextInt();
-
-                //queryResultSet = PrepSQLStatement.executeQuery();
+            if (pin == userInputtedPassword & customer_id == userInputtedLogin) {
+                System.out.println("correct. database is opened");
+                queryResultSet.close();
+                PrepSQLStatement.close();
+                MainMenu.showMenu();
 
             } else {
-                int customer_id = queryResultSet.getInt("customer_id");
-                int pin = queryResultSet.getInt("pin");
+                System.out.println("exit");
 
-                if (pin == userInputtedPassword & customer_id == userInputtedLogin) {
-                    System.out.println("correct. database is opened");
-                    queryResultSet.close();
-                    PrepSQLStatement.close();
-                    DBConnection.connectionToSQLite.close();
-                    MainMenu.showMenu();
-                    break;
-
-                } else {
-                    System.out.println("exit");
-                }
             }
-            loginAttempt++;
         }
     }
 }
+

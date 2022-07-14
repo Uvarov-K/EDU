@@ -5,7 +5,7 @@ import java.util.*;
 
 
 public class TerminalOperations {
-    static int customer_id = User.userLogin;
+    static int customer_id = User.userID;
 
 
     public static void showBalance() throws SQLException {
@@ -34,6 +34,7 @@ public class TerminalOperations {
                                  "Do you want to deposit more money? [Y/y N/n]: ");
 
                 int totalDeposited = deposited;
+
                 // BUG with answer like 1111111
                 while (!answer.next().equalsIgnoreCase("n")) {
                     System.out.print("Insert your money: ");

@@ -12,7 +12,7 @@ public class UserLogin {
         Scanner userInput = new Scanner(System.in);
 
         System.out.print("enter id: ");
-        int userInputtedLogin = User.userLogin;
+        int userInputtedLogin = User.userID;
 
         System.out.print("enter pin: ");
         int userInputtedPassword = userInput.nextInt();
@@ -34,7 +34,6 @@ public class UserLogin {
             int pin = queryResultSet.getInt("pin");
 
             if (pin == userInputtedPassword & customer_id == userInputtedLogin) {
-                System.out.println("correct. database is opened");
                 queryResultSet.close();
                 PrepSQLStatement.close();
                 TerminalMenu.showMenu();

@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.*;
 
 public class MainMenu {
-//from auth
+//from auth comment
     public static void showMenu() {
         System.out.print(
                 " ==================== \n" +

@@ -2,7 +2,7 @@ package Terminal;
 
 import java.sql.*;
 import java.util.*;
-//from auth comment t
+
 public class MainMenu {
 
     public static void showMenu() {
@@ -20,7 +20,8 @@ public class MainMenu {
 
     }
 
-        public static void main (String[]args){
-            MainMenu.showMenu();
+        public static void main (String[]args) throws SQLException {
+        UserLogin.checkUserCredentials();
+
         }
     }

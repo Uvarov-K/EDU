@@ -2,7 +2,7 @@ package Terminal;
 
 import java.sql.*;
 import java.util.*;
-//atdddddddddddd
+//from test
 public class MainMenu {
 
     public static void showMenu() {

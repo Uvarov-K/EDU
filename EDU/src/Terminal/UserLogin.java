@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-import static Terminal.DBConnection.connectionToSQLite;
-
 public class UserLogin {
 
     public static void checkUserCredentials() throws SQLException {
@@ -39,7 +37,7 @@ public class UserLogin {
                 System.out.println("correct. database is opened");
                 queryResultSet.close();
                 PrepSQLStatement.close();
-                MainMenu.showMenu();
+                TerminalMenu.showMenu();
 
             } else {
                 System.out.println("exit");

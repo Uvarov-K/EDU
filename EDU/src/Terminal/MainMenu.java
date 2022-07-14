@@ -1,27 +1,21 @@
 package Terminal;
 
-import java.sql.*;
-import java.util.*;
-
 public class MainMenu {
-
-    public static void showMenu() {
+    public static void showLoginScreen() {
         System.out.print(
-                " ==================== \n" +
-                " Available actions: \n" +
-                " 1) deposit money \n" +
-                " 2) withdraw money \n" +
-                " 3) show balance \n" +
-                " 4) exit\n" +
-                " ==================== \n"
+                " ********************************************* \n" +
+                " *      WELCOME TO OUR CASINO BANK 777       *\n" +
+                " ********************************************* \n" +
+                "     ____________________________________ \n" +
+                "    | To get access to all world's money |\n" +
+                "    | enter your CLIENT ID and your PIN  |\n" +
+                "    ------------------------------------- "
         );
+    }
 
-        UserInput.chooseMenu();
+    public static void main(String[] args) {
 
     }
 
-        public static void main (String[]args) throws SQLException {
-        UserLogin.checkUserCredentials();
 
-        }
-    }
+}

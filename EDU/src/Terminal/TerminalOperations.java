@@ -10,7 +10,7 @@ public class TerminalOperations {
 
     public static void showBalance() throws SQLException {
         System.out.println("Your balance is: " + BalanceOperation.getBalance(customer_id));
-        MainMenu.showMenu();
+        TerminalMenu.showMenu();
     }
 
 

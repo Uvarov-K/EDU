@@ -9,12 +9,12 @@ import static Terminal.DBConnection.connectionToSQLite;
 
 public class UserLogin {
 
-    public void checkUserCredentials() throws SQLException {
+    public static void checkUserCredentials() throws SQLException {
 
         Scanner userInput = new Scanner(System.in);
 
         System.out.print("enter id: ");
-        int userInputtedLogin = userInput.nextInt();
+        int userInputtedLogin = User.userLogin;
 
         System.out.print("enter pin: ");
         int userInputtedPassword = userInput.nextInt();
@@ -41,7 +41,7 @@ public class UserLogin {
                 System.out.print("enter pin: ");
                 userInputtedPassword = userInput.nextInt();
 
-                queryResultSet = PrepSQLStatement.executeQuery();
+                //queryResultSet = PrepSQLStatement.executeQuery();
 
             } else {
                 int customer_id = queryResultSet.getInt("customer_id");
@@ -59,6 +59,7 @@ public class UserLogin {
                 }
             }
             loginAttempt++;
-        }
+        }MainMenu.showMenu();
     }
+
 }

@@ -5,7 +5,7 @@ import java.util.*;
 
 
 public class TerminalOperations {
-    static int customer_id = 2;
+    static int customer_id = User.userLogin;
 
 
     public static void showBalance() throws SQLException {

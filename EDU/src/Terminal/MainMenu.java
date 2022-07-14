@@ -20,7 +20,8 @@ public class MainMenu {
 
     }
 
-        public static void main (String[]args){
-            MainMenu.showMenu();
+        public static void main (String[]args) throws SQLException {
+        UserLogin.checkUserCredentials();
+
         }
     }
